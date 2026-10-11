@@ -1,0 +1,56 @@
+{
+  "fridge_id": "orion-fridge-01",
+  "device_id": "arduino-uno-r4",
+  "baseline_start": "2026-10-11T03:47:00.000Z",
+  "baseline_end": "2026-10-11T03:50:00.000Z",
+  "sample_count": 174,
+  "status": "provisional_pre_demo_reference",
+  "moisture_test": {
+    "status": "wet_trigger_and_dry_recovery_confirmed",
+    "observed_at": "2026-10-11T04:36:37.374Z",
+    "dry_raw": 0,
+    "wet_observed_min_raw": 37,
+    "wet_observed_peak_raw": 118,
+    "alert_trigger_raw": 10,
+    "persistence_seconds": 2,
+    "interpretation": "Positive readings indicate possible wet contact; alert at 10 or higher for two seconds. This measures contact wetness, not humidity or food safety.",
+    "dry_recovery_observed_at": "2026-10-11T04:38:29.768Z"
+  },
+  "temperature_c": -17.2,
+  "moisture_raw": 0,
+  "air_quality_raw": 51,
+  "thresholds": {
+    "temperature_rise_c": 2,
+    "moisture_increase_raw": 10,
+    "air_increase_raw": 30,
+    "motion_peak_g": 0.2
+  },
+  "note": "Temperature range -17.30 to -16.94 C; air range 50 to 51; moisture 0. Quiet motion peak reached 0.208 g. Demo thresholds require physical validation; not food safety limits.",
+  "air_test": {
+    "status": "vapor_trigger_and_alert_clear_confirmed",
+    "baseline_raw_range": [
+      41,
+      42
+    ],
+    "peak_raw": 260,
+    "trigger_observed_at": "2026-10-11T04:38:38.015Z",
+    "recovery_observed_at": "2026-10-11T04:39:48.129Z",
+    "recovery_raw": 48,
+    "alert_trigger_raw": 81,
+    "persistence_seconds": 2,
+    "interpretation": "Sanitizer vapor response and alert clearance confirmed; no gas concentration, AQI, or spoilage calibration."
+  },
+  "movement_test": {
+    "status": "threshold_crossing_recorded_live_alert_not_observed",
+    "first_trial_start": "2026-10-11T04:46:25.439Z",
+    "first_trial_peak_g": 0.172,
+    "second_trial_threshold_crossing_at": "2026-10-11T04:47:11.895Z",
+    "second_trial_peak_g": 0.269,
+    "alert_threshold_g": 0.25,
+    "recovery_peak_g": 0.135,
+    "interpretation": "Controlled cart start/stop crossed the threshold in one recorded sample. Gentle roll did not. Does not establish reliable theft detection.",
+    "current_alert_threshold_g": 0.2,
+    "current_alert_comparison": "strictly_greater_than",
+    "sensitivity_note": "Lowered at user request. Observed quiet peak of 0.208 g can trigger this setting."
+  }
+}

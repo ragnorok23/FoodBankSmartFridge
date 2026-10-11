@@ -1,0 +1,27 @@
+{
+  "name": "fridge-vision-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file=.env --watch-path=.env --watch-path=server.js --watch-path=app.js --watch-path=vision.js server.js",
+    "start": "node --env-file=.env server.js",
+    "test": "node --test",
+    "check": "tsc"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^4.0.93",
+    "ai": "^7.0.137",
+    "express": "^5.3.0",
+    "multer": "^2.4.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.3.0",
+    "@types/node": "^26.6.5",
+    "@types/supertest": "^7.2.1",
+    "supertest": "^7.3.1",
+    "typescript": "^7.0.2"
+  }
+}

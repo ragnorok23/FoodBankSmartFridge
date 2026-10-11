@@ -1,0 +1,3 @@
+{"mcpServers": {
+	"tiger": {"command": "/opt/homebrew/bin/tiger", "args": ["--service-id", "ym0p9v6xv2", "mcp", "start"], "env": {"TIGER_READ_ONLY":"prod"}}
+}}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nourish · Thermal monitoring</title>
+<style>
+body{font:16px system-ui,sans-serif;background:#f3f5f1;color:#192d25;margin:0}main{max-width:1000px;margin:35px auto;padding:20px}h1{font-size:32px;margin-bottom:8px}p{line-height:1.5}form,.controls{display:flex;gap:14px;flex-wrap:wrap;align-items:end;margin:22px 0}label{display:grid;gap:5px;font-size:14px}input,select,button{font:inherit;padding:10px;border:1px solid #abb9ae;border-radius:8px}button{background:#214c3c;color:white;cursor:pointer}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}.card,.chart{background:white;border:1px solid #dae1d8;border-radius:12px;padding:20px}.card strong{display:block;font-size:30px;margin:10px 0}.muted{color:#506356}.chart{margin-top:20px}svg{width:100%;height:260px}.status{padding:12px;background:#e6ece2;border-radius:8px}.error{color:#8a3027}meter{width:100%;height:22px}[hidden]{display:none!important}
+</style>
+<main><h1>Nourish · Thermal monitoring</h1>
+<p class="muted">Measured temperature exposure and monitoring completeness. Missing measurements stay unknown.</p>
+
+<p id="error" class="error" role="alert"></p>
+<section id="dashboard">
+<div class="card"><h2>Condition alerts · demo settings</h2><p id="condition-status" role="status">Connecting to saved sensor data…</p><div class="cards" id="conditions"></div><p><strong id="confidence">—</strong> monitoring confidence · valid coverage of all four sensors over the last five minutes.</p><p class="muted" id="condition-baseline"></p><p class="muted">This percentage measures data completeness. Moisture is contact wetness; air changes are sensor responses; movement is not proof of theft. These alerts do not determine whether food is safe.</p><p id="condition-error" class="error" role="alert"></p></div>
+<div class="card">Live sensor temperature<strong id="live-temp">Connecting…</strong><span id="live-note">Local preview; this does not save readings to Tiger Data.</span><svg id="live-chart" viewBox="0 0 900 260" role="img" aria-label="Live temperature trend"></svg></div>
+<div class="controls"><label>Fridge<input id="fridge" value="orion-fridge-01"></label><label>Window<select id="window"><option value="10">Last 10 minutes</option><option value="60" selected>Last hour</option><option value="1440">Last 24 hours</option></select></label><label>Configured threshold (°C)<input id="threshold" type="number" value="4" min="-40" max="85" step="0.1"></label><button id="refresh">Refresh</button></div>
+<p id="status" class="status" role="status"></p>
+<div class="cards">
+<div class="card">Observed thermal exposure<strong id="exposure">—</strong><span>°C·minutes above threshold</span></div>
+<div class="card">Observed time above threshold<strong id="above">—</strong><span>minutes</span></div>
+<div class="card">Monitoring coverage<strong id="coverage">—</strong><meter id="coverage-meter" min="0" max="1" value="0"></meter><span id="unknown"></span></div>
+<div class="card">Longest monitoring gap<strong id="gap">—</strong><span>minutes without coverage</span></div>
+</div>
+<div class="chart"><h2>Temperature over time</h2><svg id="chart" viewBox="0 0 900 260" role="img" aria-label="Temperature chart; gaps mean missing measurements"></svg><p id="chart-note"></p></div>
+<p id="average"></p><p id="updated" class="muted"></p>
+<p class="muted">Linear interpolation only between valid readings at most 15 seconds apart. The last reading is not carried forward. Coverage measures monitoring completeness, not food safety. The threshold is an operational setting; these results do not establish spoilage or safety.</p>
+</section></main><script src="/monitor.js" defer></script></html>

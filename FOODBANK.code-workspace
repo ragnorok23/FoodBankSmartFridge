@@ -1,0 +1,13 @@
+{
+  "folders": [{"path":".","name":"FoodBankSmartFridge"}],
+  "settings": {"terminal.integrated.cwd":"${workspaceFolder}/tiger-data"},
+  "tasks": {
+    "version":"2.0.0",
+    "tasks":[
+      {"label":"Tiger: verify database","type":"shell","command":"npm run verify","options":{"cwd":"${workspaceFolder}/tiger-data"},"problemMatcher":[]},
+      {"label":"Tiger: run data API","type":"shell","command":"npm start","options":{"cwd":"${workspaceFolder}/tiger-data"},"isBackground":true,"problemMatcher":[],"presentation":{"panel":"dedicated","reveal":"always"}},
+      {"label":"Tiger: list Arduino ports","type":"shell","command":"npm run ports","options":{"cwd":"${workspaceFolder}/tiger-data"},"problemMatcher":[]},
+      {"label":"Tiger: stream Arduino sensors","type":"shell","command":"npm run sensors","options":{"cwd":"${workspaceFolder}/tiger-data"},"isBackground":true,"problemMatcher":[],"presentation":{"panel":"dedicated","reveal":"always"}}
+    ]
+  }
+}

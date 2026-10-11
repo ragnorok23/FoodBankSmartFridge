@@ -1,0 +1,14 @@
+{
+  "name": "foodbank-tiger-data",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "migrate": "node --env-file=.env migrate.js",
+    "verify": "node --env-file=.env verify.js",
+    "start": "node --env-file=.env server.js",
+    "sensors": "node --env-file=.env serial-bridge.js",
+    "ports": "node serial-bridge.js --list",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {"pg": "^8.16.3", "serialport": "^13.0.0", "express": "^5.1.0", "zod": "^4.1.0"}
+}
